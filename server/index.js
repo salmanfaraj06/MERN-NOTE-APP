@@ -8,7 +8,7 @@ const multer = require('multer'); // Multer is a node.js middleware for handling
 var app = Express(); 
 app.use(cors(
     {
-        origin: ['https://mern-note-app-alpha.vercel.app/'], // This is the port number where the react app is running
+        origin: ['https://mern-note-app-alpha.vercel.app'], // This is the port number where the react app is running
         methods: ['GET,POST,DELETE'], // These are the methods that are allowed
         credentials: true
     
