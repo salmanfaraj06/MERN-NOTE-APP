@@ -9,7 +9,7 @@ var app = Express();
 app.use(cors(
     {
         origin: ['https://mern-note-app-alpha.vercel.app'], // This is the port number where the react app is running
-        methods: ['POST,DELETE'], // These are the methods that are allowed
+        methods: ['GET,POST,DELETE'], // These are the methods that are allowed
         credentials: true
     
     }
@@ -38,7 +38,7 @@ Mongoclient.connect(CONNECTION_STRING, (error, client) => { // connecting to the
 
 // api methods to get all data from mongodb
 //THE PATHWAY:It's not a file or directory path on your local machine, but a path in the URL that clients use to access your server.
-app.get('/api/todoapp/GetNotes', async (request, response) => {
+app.get('https://mern-notes-api.vercel.app/api/todoapp/GetNotes', async (request, response) => {
     try {
         const result = await database.collection('TODOCOLLECTION').find({}).toArray();
         response.send(result);
