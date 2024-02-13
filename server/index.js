@@ -24,8 +24,10 @@ var DATABASENAME = 'TODOAPP';
 var database;
 
 // express app will listen to the activity on port 
-app.listen(5038, () => {
-    console.log('Server is running on port 5038');
+const PORT = process.env.PORT || 5038; // Use the PORT environment variable if it's set, otherwise use 5038
+
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
     Mongoclient.connect(CONNECTION_STRING, (error, client) => { // connecting to the database
         if (error) {
             console.error('Failed to connect to the database. Error:', error);
@@ -34,7 +36,7 @@ app.listen(5038, () => {
             console.log("Mongodb connection was successful");
         }
     });
-})
+});
 
 // api methods to get all data from mongodb
 //THE PATHWAY:It's not a file or directory path on your local machine, but a path in the URL that clients use to access your server.
