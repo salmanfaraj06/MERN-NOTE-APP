@@ -48,7 +48,7 @@ app.get('/api/todoapp/GetNotes', async (request, response) => {
     }
 });
 
-// method to add and delete 
+// methods to add and delete 
 
 app.post('/api/todoapp/AddNotes',multer().none(), (request, response) => { // post method to add data to mongodb
     database.collection('TODOCOLLECTION').count({},function(error,numOfDocs){ // count method to count the number of documents in the collection
