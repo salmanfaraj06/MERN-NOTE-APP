@@ -42,6 +42,7 @@ app.get('/api/todoapp/GetNotes', async (request, response) => {
     try {
         const result = await database.collection('TODOCOLLECTION').find({}).toArray();
         response.send(result);
+        console.log(result);
     } catch (error) {
         console.error('Failed to retrieve data. Error:', error);
         response.status(500).send('Failed to retrieve data');
