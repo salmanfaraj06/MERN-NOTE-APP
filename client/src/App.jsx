@@ -14,7 +14,7 @@ class App extends Component {
   }
 
 
-  API_URL = "https://mern-notes-api.vercel.app"; //api url
+  API_URL = "https://mern-notes-api.vercel.app/"; //api url
 
   componentDidMount() { 
     //method to call refreshNotes-inbuilt
