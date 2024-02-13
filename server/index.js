@@ -24,7 +24,7 @@ var DATABASENAME = 'TODOAPP';
 var database;
 
 // express app will listen to the activity on port 
-const PORT = process.env.PORT || 5038; // Use the PORT environment variable if it's set, otherwise use 5038
+const PORT = process.env.PORT ; // Use the PORT environment variable if it's set, otherwise use 5038
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
