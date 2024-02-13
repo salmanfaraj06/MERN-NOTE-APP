@@ -38,16 +38,15 @@ Mongoclient.connect(CONNECTION_STRING, (error, client) => { // connecting to the
 
 // api methods to get all data from mongodb
 //THE PATHWAY:It's not a file or directory path on your local machine, but a path in the URL that clients use to access your server.
-app.get('/api/todoapp/GetNotes', (request, response) => { // get method to retrieve data from mongodb
-    database.collection('TODOCOLLECTION').find({}).toArray((error, result) => {
-        if (error) {
-            console.error('Failed to retrieve data. Error:', error);
-            response.status(500).send('Failed to retrieve data'); // 500 is an HTTP status code that means that there was an error on the server
-        } else {
-            response.send(result);
-        }
-    });
-})
+app.get('/api/todoapp/GetNotes', async (request, response) => {
+    try {
+        const result = await database.collection('TODOCOLLECTION').find({}).toArray();
+        response.send(result);
+    } catch (error) {
+        console.error('Failed to retrieve data. Error:', error);
+        response.status(500).send('Failed to retrieve data');
+    }
+});
 
 // method to add and delete 
 
