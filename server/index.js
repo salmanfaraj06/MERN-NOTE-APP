@@ -6,7 +6,14 @@ const multer = require('multer'); // Multer is a node.js middleware for handling
 
 // creating an instance of the express app
 var app = Express(); 
-app.use(cors()); 
+app.use(cors(
+    {
+        origin: ['https://MERN-NOTES-1whq.vercel.app'], // This is the port number where the react app is running
+        methods: ['GET,POST,DELETE'], // These are the methods that are allowed
+        credentials: true
+    
+    }
+)); 
 
 // connecting to the database
 var CONNECTION_STRING = 'mongodb+srv://salmanfaraj06:pKiYtVTLcdCvtAyx@cluster0.hylt9m6.mongodb.net/?retryWrites=true&w=majority';
