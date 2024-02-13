@@ -26,16 +26,14 @@ var database;
 // express app will listen to the activity on port 
 const PORT = process.env.PORT ; // Use the PORT environment variable if it's set, otherwise use 5038
 
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-    Mongoclient.connect(CONNECTION_STRING, (error, client) => { // connecting to the database
-        if (error) {
-            console.error('Failed to connect to the database. Error:', error);
-        } else {
-            database = client.db(DATABASENAME);
-            console.log("Mongodb connection was successful");
-        }
-    });
+Mongoclient.connect(CONNECTION_STRING, (error, client) => { // connecting to the database
+    if (error) {
+        console.error('Failed to connect to the database. Error:', error);
+        throw error; // This will cause the server to crash, providing more detailed error information
+    } else {
+        database = client.db(DATABASENAME);
+        console.log("Mongodb connection was successful");
+    }
 });
 
 // api methods to get all data from mongodb
